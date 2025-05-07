@@ -22,15 +22,15 @@ axios.defaults.withCredentials=true
       const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000';
   try {
     const response = await axios.post(
-      `${apiUrl}/ai/get-review`, 
-      { code },
-      { 
-        withCredentials: true,
+    `${apiUrl}/ai/get-review`,
+    { code },
+    {
         headers: {
-          'Content-Type': 'application/json'
-        }
-      }
-    );
+            'Content-Type': 'application/json'
+        },
+        withCredentials: true
+    }
+)
     setReview(response.data.review);
   } catch (error) {
     console.error('Error:', error);
