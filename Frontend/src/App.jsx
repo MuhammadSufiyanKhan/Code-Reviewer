@@ -20,19 +20,20 @@ axios.defaults.withCredentials=true
 
   async function reviewCode() {
       const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000';
-  try {
-    const response = await axios.post(
-    `${apiUrl}/ai/get-review`,
-    { code },
-    {
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        withCredentials: true
+ try {
+        const response = await axios({
+            method: 'post',
+            url: 'https://code-reviewer-backend-bay.vercel.app/ai/get-review',
+            data: { code },
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            withCredentials: true
+        });
+        
+        setReview(response.data);
     }
-)
-    setReview(response.data.review);
-  } catch (error) {
+  catch (error) {
     console.error('Error:', error);
     setReview('Error getting code review');
   }
