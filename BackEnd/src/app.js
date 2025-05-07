@@ -6,7 +6,7 @@ const app = express()
 
 app.use(cors(
     {
-        origin: ['https://code-reviewer-ten.vercel.app', 'http://localhost:5173'], // Add your frontend URLs
+        origin: ['https://code-reviewer-gules.vercel.app', 'http://localhost:5173'], // Add your frontend URLs
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
